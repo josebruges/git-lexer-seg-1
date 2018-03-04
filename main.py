@@ -1,3 +1,4 @@
+#Modulo main.py
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 
@@ -6,25 +7,36 @@ import codecs
 import os
 import sys
 import time
+from Logic.ClassLexer import *
+from Logic.ClassPresentacion import *
+import win32com.client
 
-progress_bar =""
-i = 0;
-limit = 11
-ascii_progress = 178
-ascii_no_progress = 176
+# URL = C:\Users\AngelaPelaez\Dropbox\COMPILADORES\LEXER_V2\Lenguajes\lenguaje2.jbc
 
-for index in range(0, 11):
-    time.sleep(0.2)
-    progress_bar = "| "
-    for i in range(0, index):
-        progress_bar += " ═ "
-    limit-=1;
-    for j in range(0, limit):
-        progress_bar += " - "
+#Barra de progreso
+os.system("cls")
+os.system("COLOR 3A")
+present = ClassPresentacion()
+present.barra_de_progreso()
+present.hablar("bienvenido al lexerr vaikings")
 
-    progress_bar += " | " + str(index*10) + "%"
+
+#Abrir fichero
+os.system("cls")
+my_lexer = ClassLexer(input("\n\n\nIngrese URL: "))
+if my_lexer.abrir_documento():
+    print("\n\t Fichero encontrado\n\n")
+    present.hablar("Fichero encontrado.")
+
+    os.system("Pause")
     os.system("cls")
+    print("\n URL:", my_lexer.direcctorio)
+    my_lexer.analizador_lexer()
+else:
+    print("\n\t Error, el fichero no pudo ser encontrado")
+    present.hablar("Error, el fichero no pudo ser encontrado")
+os.system("Pause")
 
-    print("\n\n\n\tLEXER VIKINGS ")
-    print("\t..CARGANDO.. ")
-    print("\t" , progress_bar)
+
+
+

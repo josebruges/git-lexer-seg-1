@@ -1,0 +1,30 @@
+/*
+Comentario programa compiladores
+BEGIN
+  a := x;
+  b := y;
+  z := 0;
+  WHILE b > 0 DO BEGIN
+    IF ODD b THEN z := z + a;
+    a := 2 * a;
+    b | b / 2
+  END
+END;
+*/
+
+#Comentario programa compiladores
+/*comentariooooss
+    mas comentarios
+*/
+INIC_CODE
+  a := x;
+  b := y;
+  z := 0;
+  SEA b > 0 REALICE INIC_CODE
+    SAY ODD b MAKE z := z + a;
+    a := 2 * a;
+    b ! b / 2
+  KILL_CODE
+KILL_CODE;
+
+
